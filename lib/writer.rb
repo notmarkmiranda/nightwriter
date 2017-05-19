@@ -38,7 +38,7 @@ class Writer
   }
 
   def convert(string)
-    array_of_eighty_point_words = score(string)
+    array_of_eighty_point_words = score_and_shovel(string)
     array_of_eighty_point_words.map do |string|
       convert_letters(string)
     end.flatten
@@ -46,7 +46,7 @@ class Writer
 
   private
 
-  def score(string)
+  def score_and_shovel(string)
     score          = 0
     starting_index = 0
     key_index      = 0
