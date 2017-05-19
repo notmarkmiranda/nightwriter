@@ -39,19 +39,13 @@ class Writer
 
   def convert(string)
     array_of_eighty_point_words = score_and_shovel(string)
-    array_of_eighty_point_words.map do |string|
-      convert_letters(string)
-    end.flatten
+    array_of_eighty_point_words.map { |string| convert_letters(string) }.flatten
   end
 
   private
 
   def score_and_shovel(string)
-    score          = 0
-    starting_index = 0
-    key_index      = 0
-    scored_strings = []
-
+    score, starting_index, key_index, scored_strings = 0, 0, 0, []
     string.chars.each_with_index do |letter, index|
       add_score = check_letter_case(letter)
       if (score += add_score) > 80
@@ -62,14 +56,10 @@ class Writer
       end
     end
     scored_strings << string[starting_index..-1]
-    scored_strings
   end
 
   def check_letter_case(letter)
     letter == letter.upcase ? 4 : 2
-  end
-
-  def over_eighty_check(score, add_score)
   end
 
   def convert_letters(string)
@@ -97,5 +87,4 @@ class Writer
       array.join
     end
   end
-
 end

@@ -5,7 +5,7 @@ if !File.exists?(ARGV[0])
   exit
 end
 
-raw_text = File.read(ARGV[0])
+raw_text = File.read(ARGV[0]).strip
 
 writer = Writer.new()
 converted_text = writer.convert(raw_text)
